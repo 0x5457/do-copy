@@ -1,6 +1,6 @@
 {
   "name": "do-copy",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "在现代浏览器中执行复制命令",
   "main": "src/index.js",
   "scripts": {

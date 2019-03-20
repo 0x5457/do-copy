@@ -108,9 +108,14 @@
       window.getSelection().removeAllRanges();
     }
 
+    function isSupported() {
+      return !!document.queryCommandSupported && !!document.queryCommandSupported('copy');
+    }
+
     var index = {
       copyText,
-      copyFromElem
+      copyFromElem,
+      isSupported
     };
 
     return index;

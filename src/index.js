@@ -56,7 +56,13 @@ function _clearSelection() {
   window.getSelection().removeAllRanges();
 }
 
+function isSupported() {
+  return !!document.queryCommandSupported && !!document.queryCommandSupported('copy');
+}
+
+
 export default {
   copyText,
-  copyFromElem
+  copyFromElem,
+  isSupported
 };
