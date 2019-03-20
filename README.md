@@ -14,6 +14,9 @@ npm i do-copy -S
 ```js
 import doCopy from "do-copy";
 
+// 检查浏览器是否支持复制命令
+let isSupported = doCopy.isSupported();
+
 button.onclick = () => {
   let ok = doCopy.copyText("copy this text!");
   console.log(ok);
