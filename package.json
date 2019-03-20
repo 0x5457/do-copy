@@ -1,14 +1,22 @@
 {
-  "name": "@tw/do-copy",
-  "version": "1.0.0",
-  "description": "",
+  "name": "do-copy",
+  "version": "1.0.1",
+  "description": "在现代浏览器中执行复制命令",
   "main": "src/index.js",
   "scripts": {
     "start": "rollup -c --watch",
     "build": "rollup -c"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tw666/do-copy"
+  },
+  "keywords": [
+    "copy",
+    "clipboard"
+  ],
+  "author": "tw <t888y@qq.com>",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "rollup": "^1.6.0",

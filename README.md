@@ -2,6 +2,13 @@
 
 > 在现代浏览器中执行复制命令
 
+## Install
+
+```shell
+npm i do-copy -S
+# or yarn add do-copy
+```
+
 ## Use
 
 ```js
