@@ -57,9 +57,10 @@ function _clearSelection() {
 }
 
 function isSupported() {
-  return !!document.queryCommandSupported && !!document.queryCommandSupported('copy');
+  return (
+    !!document.queryCommandSupported && !!document.queryCommandSupported("copy")
+  );
 }
-
 
 export default {
   copyText,
