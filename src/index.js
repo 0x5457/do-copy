@@ -11,7 +11,7 @@ function _doCopy(cb = () => {}) {
   return succeeded;
 }
 
-export function copyText(text) {
+function copyText(text) {
   const isRTL = document.documentElement.getAttribute("dir") == "rtl";
   let fakeElem = document.createElement("textarea");
   // Prevent zooming on iOS
@@ -38,7 +38,7 @@ export function copyText(text) {
   });
 }
 
-export function copyFromElem(target) {
+function copyFromElem(target) {
   let targetElem = target;
   if (typeof target === "string") {
     targetElem = document.querySelector(target);
@@ -55,3 +55,8 @@ export function copyFromElem(target) {
 function _clearSelection() {
   window.getSelection().removeAllRanges();
 }
+
+export default {
+  copyText,
+  copyFromElem
+};
