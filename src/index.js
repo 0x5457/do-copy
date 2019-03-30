@@ -11,9 +11,9 @@ function _doCopy(cb = () => {}) {
   return succeeded;
 }
 
-function copyText(text) {
+function fakeElement(content) {
   const isRTL = document.documentElement.getAttribute("dir") == "rtl";
-  let fakeElem = document.createElement("textarea");
+  let fakeElem = document.createElement("div");
   // Prevent zooming on iOS
   fakeElem.style.fontSize = "12pt";
   // Reset box model
@@ -28,7 +28,12 @@ function copyText(text) {
   fakeElem.style.top = `${yPosition}px`;
 
   fakeElem.setAttribute("readonly", "");
-  fakeElem.value = text;
+  fakeElem.innerHTML = content;
+  return fakeElem;
+}
+
+function copyHtml(html) {
+  const fakeElem = fakeElement(html);
   document.body.appendChild(fakeElem);
   select(fakeElem);
 
@@ -36,7 +41,7 @@ function copyText(text) {
     _clearSelection();
     document.body.removeChild(fakeElem);
   });
-}
+} 
 
 function copyFromElem(target) {
   let targetElem = target;
@@ -63,7 +68,7 @@ function isSupported() {
 }
 
 export default {
-  copyText,
+  copyHtml,
   copyFromElem,
   isSupported
 };

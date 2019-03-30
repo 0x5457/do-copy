@@ -18,16 +18,25 @@ import doCopy from "do-copy";
 let isSupported = doCopy.isSupported();
 
 button.onclick = () => {
-  let ok = doCopy.copyText("copy this text!");
+  // 复制普通文本
+  let ok = doCopy.copyHtml("copy this text!");
   console.log(ok);
 };
 
 button.onclick = () => {
+  // 复制 html 格式文本
+  let ok = doCopy.copyHtml("<div>123<img src="https://www.baidu.com/img/bd_logo1.png" /></div>");
+  console.log(ok);
+};
+
+button.onclick = () => {
+  // 复制html元素
   let ok = doCopy.copyFromElem("body");
   console.log(ok);
 };
 
 button.onclick = () => {
+  // 复制html元素
   let ok = doCopy.copyFromElem(document.querySelector("div"));
   console.log(ok);
 };

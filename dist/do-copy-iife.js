@@ -58,9 +58,9 @@ var doCopy = (function () {
       return succeeded;
     }
 
-    function copyText(text) {
+    function fakeElement(content) {
       const isRTL = document.documentElement.getAttribute("dir") == "rtl";
-      let fakeElem = document.createElement("textarea"); // Prevent zooming on iOS
+      let fakeElem = document.createElement("div"); // Prevent zooming on iOS
 
       fakeElem.style.fontSize = "12pt"; // Reset box model
 
@@ -74,7 +74,12 @@ var doCopy = (function () {
       let yPosition = window.pageYOffset || document.documentElement.scrollTop;
       fakeElem.style.top = `${yPosition}px`;
       fakeElem.setAttribute("readonly", "");
-      fakeElem.value = text;
+      fakeElem.innerHTML = content;
+      return fakeElem;
+    }
+
+    function copyHtml(html) {
+      const fakeElem = fakeElement(html);
       document.body.appendChild(fakeElem);
       select_1(fakeElem);
       return _doCopy(() => {
@@ -106,11 +111,11 @@ var doCopy = (function () {
     }
 
     function isSupported() {
-      return !!document.queryCommandSupported && !!document.queryCommandSupported('copy');
+      return !!document.queryCommandSupported && !!document.queryCommandSupported("copy");
     }
 
     var index = {
-      copyText,
+      copyHtml,
       copyFromElem,
       isSupported
     };
