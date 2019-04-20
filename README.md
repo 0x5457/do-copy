@@ -19,7 +19,7 @@ let isSupported = doCopy.isSupported();
 
 button.onclick = () => {
   // 复制普通文本
-  let ok = doCopy.copyHtml("copy this text!");
+  let ok = doCopy.copyText("copy this text!");
   console.log(ok);
 };
 

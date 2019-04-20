@@ -32,6 +32,10 @@ function fakeElement(content) {
   return fakeElem;
 }
 
+function copyText(text) {
+  copyHtml(text);
+}
+
 function copyHtml(html) {
   const fakeElem = fakeElement(html);
   document.body.appendChild(fakeElem);
@@ -41,7 +45,7 @@ function copyHtml(html) {
     _clearSelection();
     document.body.removeChild(fakeElem);
   });
-} 
+}
 
 function copyFromElem(target) {
   let targetElem = target;
@@ -68,6 +72,7 @@ function isSupported() {
 }
 
 export default {
+  copyText,
   copyHtml,
   copyFromElem,
   isSupported
