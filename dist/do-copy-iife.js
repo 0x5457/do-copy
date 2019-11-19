@@ -78,6 +78,10 @@ var doCopy = (function () {
       return fakeElem;
     }
 
+    function copyText(text) {
+      return copyHtml(text);
+    }
+
     function copyHtml(html) {
       const fakeElem = fakeElement(html);
       document.body.appendChild(fakeElem);
@@ -115,6 +119,7 @@ var doCopy = (function () {
     }
 
     var index = {
+      copyText,
       copyHtml,
       copyFromElem,
       isSupported

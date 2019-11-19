@@ -2,7 +2,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define(factory) :
     (global = global || self, global.doCopy = factory());
-}(this, function () { 'use strict';
+}(this, (function () { 'use strict';
 
     function select(element) {
         var selectedText;
@@ -81,6 +81,10 @@
       return fakeElem;
     }
 
+    function copyText(text) {
+      return copyHtml(text);
+    }
+
     function copyHtml(html) {
       const fakeElem = fakeElement(html);
       document.body.appendChild(fakeElem);
@@ -118,6 +122,7 @@
     }
 
     var index = {
+      copyText,
       copyHtml,
       copyFromElem,
       isSupported
@@ -125,4 +130,4 @@
 
     return index;
 
-}));
+})));

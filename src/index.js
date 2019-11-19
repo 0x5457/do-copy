@@ -33,7 +33,7 @@ function fakeElement(content) {
 }
 
 function copyText(text) {
-  copyHtml(text);
+  return copyHtml(text);
 }
 
 function copyHtml(html) {
